@@ -233,6 +233,14 @@ angular.module('templates', [])
     '                    <option>Denial of service</option>\n' +
     '                    <option>Elevation of privilege</option>\n' +
     '                </select>\n' +
+    '                <label>DREAD threat type</label>\n' +
+    '                <select name="typeInput" class="form-control" ng-required="true" ng-model="parameter.threat.type">\n' +
+    '                    <option selected>Damage</option>\n' +
+    '                    <option>Reproducibility</option>\n' +
+    '                    <option>Exploitability</option>\n' +
+    '                    <option>Affected users</option>\n' +
+    '                    <option>Discoverability</option>\n' +
+    '                </select>\n' +
     '                <div ng-show="!threatEditForm.typeInput.$valid && threatEditForm.typeInput.$dirty">\n' +
     '                    <p>\n' +
     '                        <div class="alert alert-danger" role="alert">\n' +
