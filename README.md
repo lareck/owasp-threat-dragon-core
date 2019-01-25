@@ -7,7 +7,7 @@
 [![Dependency Status](https://dependencyci.com/github/mike-goodwin/owasp-threat-dragon-core/badge)](https://dependencyci.com/github/mike-goodwin/owasp-threat-dragon-core)
 [![Known Vulnerabilities](https://snyk.io/test/github/mike-goodwin/owasp-threat-dragon-core/badge.svg)](https://snyk.io/test/github/mike-goodwin/owasp-threat-dragon-core)
 
-# [OWASP](https://www.owasp.org) Threat Dragon #
+# [OWASP](https://www.owasp.org) Threat Dragon v2#
 
 Threat Dragon is a free, open-source, cross-platform threat modelling application including system diagramming and a rule engine to auto-generate threats/mitigations. It is an [OWASP Incubator Project](https://www.owasp.org/index.php/OWASP_Threat_Dragon). The focus of the project is on great UX, a powerful rule engine and integration with other development lifecycle tools.
 
