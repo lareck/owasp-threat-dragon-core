@@ -233,8 +233,19 @@ angular.module('templates', [])
     '                    <option>Denial of service</option>\n' +
     '                    <option>Elevation of privilege</option>\n' +
     '                </select>\n' +
-    '                <label>DREAD threat type</label>\n' +
-    '                <select name="typeInput" class="form-control" ng-required="true" ng-model="parameter.threat.type">\n' +
+    '                <div ng-show="!threatEditForm.typeInput.$valid && threatEditForm.typeInput.$dirty">\n' +
+    '                    <p>\n' +
+    '                        <div class="alert alert-danger" role="alert">\n' +
+    '                            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>\n' +
+    '                            <span class="sr-only">Error:</span>\n' +
+    '                            The threat type cannot be empty.\n' +
+    '                        </div>\n' +
+    '                    </p>\n' +
+    '                </div>\n' +
+    '            </div>\n' +
+    '            <div class="form-group">\n' +
+    '                <label>DREAD Threat Type</label>\n' +
+    '                <select name="typeInput" class="form-control" ng-required="true" ng-model="parameter.threat.dreadType">\n' +
     '                    <option selected>Damage</option>\n' +
     '                    <option>Reproducibility</option>\n' +
     '                    <option>Exploitability</option>\n' +
