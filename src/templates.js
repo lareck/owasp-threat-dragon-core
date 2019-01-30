@@ -226,7 +226,8 @@ angular.module('templates', [])
     '            <div class="form-group">\n' +
     '                <label>STRIDE threat type</label>\n' +
     '                <select name="typeInput" class="form-control" ng-required="true" ng-model="parameter.threat.type">\n' +
-    '                    <option selected>Spoofing</option>\n' +
+    '                    <option selected>Not Applicable</option>\n' +
+    '                    <option>Spoofing</option>\n' +
     '                    <option>Tampering</option>\n' +
     '                    <option>Repudiation</option>\n' +
     '                    <option>Information disclosure</option>\n' +
@@ -246,11 +247,38 @@ angular.module('templates', [])
     '            <div class="form-group">\n' +
     '                <label>DREAD Threat Type</label>\n' +
     '                <select name="typeInput" class="form-control" ng-required="true" ng-model="parameter.threat.dreadType">\n' +
-    '                    <option selected>Damage</option>\n' +
+    '                    <option selected>Not Applicable</option>\n' +
+    '                    <option>Damage</option>\n' +
     '                    <option>Reproducibility</option>\n' +
     '                    <option>Exploitability</option>\n' +
     '                    <option>Affected users</option>\n' +
     '                    <option>Discoverability</option>\n' +
+    '                </select>\n' +
+    '                <div ng-show="!threatEditForm.typeInput.$valid && threatEditForm.typeInput.$dirty">\n' +
+    '                    <p>\n' +
+    '                        <div class="alert alert-danger" role="alert">\n' +
+    '                            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>\n' +
+    '                            <span class="sr-only">Error:</span>\n' +
+    '                            The threat type cannot be empty.\n' +
+    '                        </div>\n' +
+    '                    </p>\n' +
+    '                </div>\n' +
+    '            </div>\n' +
+    '            <div class="form-group">\n' +
+    '                <label>Mitre Attack Type</label>\n' +
+    '                <select name="typeInput" class="form-control" ng-required="true" ng-model="parameter.threat.mitreAttackType">\n' +
+    '                    <option selected>Not Applicable</option>\n' +
+    '                    <option>Initial Access</option>\n' +
+    '                    <option>Execution</option>\n' +
+    '                    <option>Persistence</option>\n' +
+    '                    <option>Privilege Escalation</option>\n' +
+    '                    <option>Defense Evasion</option>\n' +
+    '                    <option>Credential Access</option>\n' +
+    '                    <option>Discovery</option>\n' +
+    '                    <option>Lateral Movement</option>\n' +
+    '                    <option>Collection</option>\n' +
+    '                    <option>Exfiltration</option>\n' +
+    '                    <option>Command and Control</option>\n' +
     '                </select>\n' +
     '                <div ng-show="!threatEditForm.typeInput.$valid && threatEditForm.typeInput.$dirty">\n' +
     '                    <p>\n' +
