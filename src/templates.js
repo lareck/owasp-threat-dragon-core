@@ -147,6 +147,10 @@ angular.module('templates', [])
     '            <label>Privilege level</label>\n' +
     '            <input name="privilegeLevelInput" ng-disabled="selected.outOfScope" class="form-control" type="text" ng-model="selected.privilegeLevel" ng-change="edit()" placeholder="Privilege level" />\n' +
     '        </div>\n' +
+    '        <div class="form-group">\n' +
+    '            <label>Asset List</label>\n' +
+    '            <input name="assetListInput" ng-disabled="selected.outOfScope" class="form-control" type="text" ng-model="selected.assetList" ng-change="edit()" placeholder="Logical Assets" />\n' +
+    '        </div>\n' +
     '    </div>\n' +
     '    <div ng-show="elementType === \'tm.Actor\'">\n' +
     '        <div class="checkbox">\n' +
