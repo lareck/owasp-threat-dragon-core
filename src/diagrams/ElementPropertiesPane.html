@@ -19,6 +19,10 @@
             <label>Privilege level</label>
             <input name="privilegeLevelInput" ng-disabled="selected.outOfScope" class="form-control" type="text" ng-model="selected.privilegeLevel" ng-change="edit()" placeholder="Privilege level" />
         </div>
+        <div class="form-group">
+            <label>Asset List</label>
+            <input name="assetListInput" ng-disabled="selected.outOfScope" class="form-control" type="text" ng-model="selected.assetList" ng-change="edit()" placeholder="Logical Assets" />
+        </div>
     </div>
     <div ng-show="elementType === 'tm.Actor'">
         <div class="checkbox">
