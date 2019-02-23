@@ -35,12 +35,12 @@
     "angular": "^1.7.7",
     "angular-route": "^1.7.7",
     "angular-ui-bootstrap": "^2.5.6",
-    "bootstrap": "^3.4.1",
+    "bootstrap": "^4.3.1",
     "jointjs": "^2.2.1",
-    "jquery": "^3.0.0",
-    "lodash": "^4.13.1",
+    "jquery": "^3.3.1",
+    "lodash": "^4.17.11",
     "nools": "^0.4.4",
-    "snyk": "^1.52.0",
+    "snyk": "^1.134.2",
     "toastr": "^2.1.4"
   },
   "devDependencies": {
