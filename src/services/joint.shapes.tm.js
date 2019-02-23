@@ -241,7 +241,7 @@ joint.shapes.tm.Store = joint.shapes.tm.toolElement.extend({
         type: 'tm.Store',
         attrs: {
             rect: { fill: 'white', stroke: 'white', 'follow-scale': true, width: 160, height: 80 },
-            '.element-shape': { d: 'M0 0 H160 M0 80 H160', stroke: 'black', fill: 'white', 'stroke-width': 1, 'follow-scale': true },
+            '.element-shape': { d: 'M0 0 H160 M0 80 H160 M0 0 V80', stroke: 'black', fill: 'white', 'stroke-width': 1, 'follow-scale': true },
             text: { ref: '.element-shape' }
         },
         size: { width: 160, height: 80 }
