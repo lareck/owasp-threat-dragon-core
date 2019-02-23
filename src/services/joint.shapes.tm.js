@@ -170,7 +170,7 @@ joint.shapes.tm.Boundary = joint.dia.Link.extend({
     defaults: joint.util.deepSupplement({
         type: 'tm.Boundary',
         attrs: {
-            '.connection': { stroke: 'green', 'stroke-width': 3, 'stroke-dasharray': '10,5' }
+            '.connection': { stroke: 'red', 'stroke-width': 3, 'stroke-dasharray': '10,5' }
         },
         smooth: true
     }, joint.dia.Link.prototype.defaults)
