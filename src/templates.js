@@ -201,7 +201,7 @@ angular.module('templates', [])
         '    </div>\n' +
         '    <div class="form-group">\n' +
         '        <label>Document AAA Services</label>\n' +
-        '        <textarea name="textareausesAuth3" ng-disabled="!selected.outOfScope" rows="4" class="form-control" type="text" ng-model="selected.usesAuth3" ng-change="edit()" placeholder="Document Authentication, Authorization and Accounting"></textarea>\n' +
+        '        <textarea name="textareausesAuth3" ng-disabled="!selected.usesAuth3" rows="2" class="form-control" type="text" ng-model="selected.usesAuth3" ng-change="edit()" placeholder="Document Authentication, Authorization and Accounting"></textarea>\n' +
         '    </div>\n' +
     '        <div class="checkbox">\n' +
     '            <label>\n' +
