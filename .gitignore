@@ -6,3 +6,4 @@ typings/
 cov-int/
 npm-debug.log
 
+package-lock.json

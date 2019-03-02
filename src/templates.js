@@ -196,12 +196,12 @@ angular.module('templates', [])
     '        </div>\n' +
         '    <div class="checkbox">\n' +
         '        <label>\n' +
-        '            <input name="checkboxAuth3" type="checkbox" ng-model="selected.usesAuth3" ng-change="edit()" /> Uses Authentication, Authorization and Accounting\n' +
+        '            <input name="checkboxAuth3" type="checkbox" ng-model="selected.usesAuth3" ng-change="edit()" /> Uses AAA\n' +
         '        </label>\n' +
         '    </div>\n' +
         '    <div class="form-group">\n' +
-        '        <label>Document Authentication, Authorization and Accounting services</label>\n' +
-        '        <textarea name="textareausesAuth3" ng-disabled="!selected.checkboxAuth3" rows="4" class="form-control" type="text" ng-model="selected.usesAuth3" ng-change="edit()" placeholder="Document Authentication, Authorization and Accounting"></textarea>\n' +
+        '        <label>Document AAA Services</label>\n' +
+        '        <textarea name="textareausesAuth3" ng-disabled="!selected.outOfScope" rows="4" class="form-control" type="text" ng-model="selected.usesAuth3" ng-change="edit()" placeholder="Document Authentication, Authorization and Accounting"></textarea>\n' +
         '    </div>\n' +
     '        <div class="checkbox">\n' +
     '            <label>\n' +
