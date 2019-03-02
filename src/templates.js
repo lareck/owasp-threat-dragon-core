@@ -186,6 +186,23 @@ angular.module('templates', [])
     '            <label>Protocol</label>\n' +
     '            <input name="inputProtocol" ng-disabled="selected.outOfScope" class="form-control" type="text" ng-model="selected.protocol" ng-change="edit()" placeholder="Protocol" />\n' +
     '        </div>\n' +
+    '        <div class="form-group">\n' +
+    '            <label>Data Classification</label>\n' +
+    '            <input name="inputProtocol" ng-disabled="selected.outOfScope" class="form-control" type="text" ng-model="selected.dataClass" ng-change="edit()" placeholder="Data Classification" />\n' +
+    '        </div>\n' +
+    '        <div class="form-group">\n' +
+    '            <label>Data Types</label>\n' +
+    '            <input name="inputProtocol" ng-disabled="selected.outOfScope" class="form-control" type="text" ng-model="selected.dataTypes" ng-change="edit()" placeholder="Data Types" />\n' +
+    '        </div>\n' +
+        '    <div class="checkbox">\n' +
+        '        <label>\n' +
+        '            <input name="checkboxAuth3" type="checkbox" ng-model="selected.usesAuth3" ng-change="edit()" /> Uses Authentication, Authorization and Accounting\n' +
+        '        </label>\n' +
+        '    </div>\n' +
+        '    <div class="form-group">\n' +
+        '        <label>Document Authentication, Authorization and Accounting services</label>\n' +
+        '        <textarea name="textareausesAuth3" ng-disabled="!selected.checkboxAuth3" rows="4" class="form-control" type="text" ng-model="selected.usesAuth3" ng-change="edit()" placeholder="Document Authentication, Authorization and Accounting"></textarea>\n' +
+        '    </div>\n' +
     '        <div class="checkbox">\n' +
     '            <label>\n' +
     '                <input name="checkboxIsEncryptedFlow" ng-disabled="selected.outOfScope" type="checkbox" ng-model="selected.isEncrypted" ng-change="edit()" /> Is encrypted\n' +

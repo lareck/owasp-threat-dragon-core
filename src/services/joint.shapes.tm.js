@@ -40,12 +40,21 @@ joint.shapes.tm.utils = {
     },
 
     editNameLink: function (element, value) {
-        element.label(0, { attrs: { text: { text: this.wordWrap(element, value) } } });
+        element.label(0, {
+            attrs: {
+                text: {
+                    text: this.wordWrap(element, value)
+                }
+            }
+        });
     },
 
     wordWrap: function (element, text) {
 
-        var size = element.isLink() ? { width: 140, height: 80 } : element.get('size');
+        var size = element.isLink() ? {
+            width: 140,
+            height: 80
+        } : element.get('size');
         return joint.util.breakText(text, size, {});
     },
 
@@ -57,8 +66,12 @@ joint.shapes.tm.utils = {
 
         properties.forEach(function (property) {
             Object.defineProperty(proto, property, {
-                get: function () { return this.prop(property); },
-                set: function (value) { this.prop(property, value); }
+                get: function () {
+                    return this.prop(property);
+                },
+                set: function (value) {
+                    this.prop(property, value);
+                }
             });
         });
     },
@@ -66,7 +79,9 @@ joint.shapes.tm.utils = {
     defineOutOfScope: function (proto, selectorClass) {
 
         Object.defineProperty(proto, 'outOfScope', {
-            get: function () { return this.prop('outOfScope'); },
+            get: function () {
+                return this.prop('outOfScope');
+            },
             set: function (value) {
 
                 var selector = '.' + selectorClass + '/class';
@@ -74,8 +89,7 @@ joint.shapes.tm.utils = {
 
                 if (value) {
                     this.attr(selector, originalClass.replace('isInScope', 'isOutOfScope'));
-                }
-                else {
+                } else {
                     this.attr(selector, originalClass.replace('isOutOfScope', 'isInScope'));
                 }
 
@@ -87,7 +101,9 @@ joint.shapes.tm.utils = {
     defineHasOpenThreats: function (proto, selectorClasses) {
 
         Object.defineProperty(proto, 'hasOpenThreats', {
-            get: function () { return this.prop('hasOpenThreats'); },
+            get: function () {
+                return this.prop('hasOpenThreats');
+            },
             set: function (value) {
 
                 var element = this;
@@ -99,8 +115,7 @@ joint.shapes.tm.utils = {
 
                     if (value) {
                         element.attr(selector, originalClass.replace('hasNoOpenThreats', 'hasOpenThreats'));
-                    }
-                    else {
+                    } else {
                         element.attr(selector, originalClass.replace('hasOpenThreats', 'hasNoOpenThreats'));
                     }
 
@@ -122,12 +137,25 @@ joint.shapes.tm.Flow = joint.dia.Link.extend({
         '</g>'
     ].join(''),
 
-    setLabel: function (labelText) { this.attributes.labels = [{ position: 0.5, attrs: { text: { text: labelText, 'font-weight': '400', 'font-size': 'small' } } }]; },
+    setLabel: function (labelText) {
+        this.attributes.labels = [{
+            position: 0.5,
+            attrs: {
+                text: {
+                    text: labelText,
+                    'font-weight': '400',
+                    'font-size': 'small'
+                }
+            }
+        }];
+    },
 
     defaults: joint.util.deepSupplement({
         type: 'tm.Flow',
         attrs: {
-            '.marker-target': { d: 'M 10 0 L 0 5 L 10 10 z' }
+            '.marker-target': {
+                d: 'M 10 0 L 0 5 L 10 10 z'
+            }
         },
         smooth: true
     }, joint.dia.Link.prototype.defaults)
@@ -136,13 +164,17 @@ joint.shapes.tm.Flow = joint.dia.Link.extend({
 //flow element properties
 
 Object.defineProperty(joint.shapes.tm.Flow.prototype, 'name', {
-    get: function () { return joint.shapes.tm.utils.wordUnwrap(this.attributes.labels[0].attrs.text.text); },
-    set: function (value) { joint.shapes.tm.utils.editNameLink(this, value); }
+    get: function () {
+        return joint.shapes.tm.utils.wordUnwrap(this.attributes.labels[0].attrs.text.text);
+    },
+    set: function (value) {
+        joint.shapes.tm.utils.editNameLink(this, value);
+    }
 });
 
 joint.shapes.tm.utils.defineOutOfScope(joint.shapes.tm.Flow.prototype, 'connection');
 joint.shapes.tm.utils.defineHasOpenThreats(joint.shapes.tm.Flow.prototype, ['connection', 'marker-target']);
-joint.shapes.tm.utils.defineProperties(joint.shapes.tm.Flow.prototype, ['reasonOutOfScope', 'protocol', 'isEncrypted', 'isPublicNetwork', 'threats']);
+joint.shapes.tm.utils.defineProperties(joint.shapes.tm.Flow.prototype, ['reasonOutOfScope', 'protocol', 'dataClass', 'dataTypes', 'usesAuth3', 'isEncrypted', 'isPublicNetwork', 'threats']);
 
 //trust boundary shape
 
@@ -165,12 +197,27 @@ joint.shapes.tm.Boundary = joint.dia.Link.extend({
         '</g>'
     ].join(''),
 
-    setLabel: function (labelText) { this.attributes.labels = [{ position: 0.5, attrs: { text: { text: labelText, 'font-weight': '400', 'font-size': 'small' } } }]; },
+    setLabel: function (labelText) {
+        this.attributes.labels = [{
+            position: 0.5,
+            attrs: {
+                text: {
+                    text: labelText,
+                    'font-weight': '400',
+                    'font-size': 'small'
+                }
+            }
+        }];
+    },
 
     defaults: joint.util.deepSupplement({
         type: 'tm.Boundary',
         attrs: {
-            '.connection': { stroke: 'red', 'stroke-width': 3, 'stroke-dasharray': '10,5' }
+            '.connection': {
+                stroke: 'red',
+                'stroke-width': 3,
+                'stroke-dasharray': '10,5'
+            }
         },
         smooth: true
     }, joint.dia.Link.prototype.defaults)
@@ -189,11 +236,20 @@ joint.shapes.tm.toolElement = joint.shapes.basic.Generic.extend({
         '<path fill="none" stroke="white" stroke-width="6" transform="scale (0.7) translate(20.86, 11)" d="m6.5 -1.47 l13.5 -9.53 l-13.5 -9.53"/> ',
         '<title>Link from here</title>',
         '</g>',
-        '</g>'].join(''),
+        '</g>'
+    ].join(''),
 
     defaults: joint.util.deepSupplement({
         attrs: {
-            text: { 'font-weight': 400, 'font-size': 'small', fill: 'black', 'text-anchor': 'middle', 'ref-x': 0.5, 'ref-y': 0.5, 'y-alignment': 'middle' },
+            text: {
+                'font-weight': 400,
+                'font-size': 'small',
+                fill: 'black',
+                'text-anchor': 'middle',
+                'ref-x': 0.5,
+                'ref-y': 0.5,
+                'y-alignment': 'middle'
+            },
         },
     }, joint.shapes.basic.Generic.prototype.defaults)
 
@@ -202,8 +258,12 @@ joint.shapes.tm.toolElement = joint.shapes.basic.Generic.extend({
 //tool element properties
 
 Object.defineProperty(joint.shapes.tm.toolElement.prototype, 'name', {
-    get: function () { return joint.shapes.tm.utils.wordUnwrap(this.attr('text/text')); },
-    set: function (value) { joint.shapes.tm.utils.editNameElement(this, value); }
+    get: function () {
+        return joint.shapes.tm.utils.wordUnwrap(this.attr('text/text'));
+    },
+    set: function (value) {
+        joint.shapes.tm.utils.editNameElement(this, value);
+    }
 });
 
 joint.shapes.tm.utils.defineProperties(joint.shapes.tm.toolElement.prototype, ['reasonOutOfScope', 'threats']);
@@ -219,10 +279,20 @@ joint.shapes.tm.Process = joint.shapes.tm.toolElement.extend({
     defaults: joint.util.deepSupplement({
         type: 'tm.Process',
         attrs: {
-            '.element-shape': { 'stroke-width': 1, r: 30, stroke: 'black', transform: 'translate(30, 30)' },
-            text: { ref: '.element-shape' }
+            '.element-shape': {
+                'stroke-width': 1,
+                r: 30,
+                stroke: 'black',
+                transform: 'translate(30, 30)'
+            },
+            text: {
+                ref: '.element-shape'
+            }
         },
-        size: { width: 100, height: 100 }
+        size: {
+            width: 100,
+            height: 100
+        }
     }, joint.shapes.tm.toolElement.prototype.defaults)
 });
 
@@ -240,11 +310,28 @@ joint.shapes.tm.Store = joint.shapes.tm.toolElement.extend({
 
         type: 'tm.Store',
         attrs: {
-            rect: { fill: 'white', stroke: 'white', 'follow-scale': true, width: 160, height: 80 },
-            '.element-shape': { d: 'M0 0 H160 M0 80 H160 M0 0 V80', stroke: 'black', fill: 'white', 'stroke-width': 1, 'follow-scale': true },
-            text: { ref: '.element-shape' }
+            rect: {
+                fill: 'white',
+                stroke: 'white',
+                'follow-scale': true,
+                width: 160,
+                height: 80
+            },
+            '.element-shape': {
+                d: 'M0 0 H160 M0 80 H160 M0 0 V80',
+                stroke: 'black',
+                fill: 'white',
+                'stroke-width': 1,
+                'follow-scale': true
+            },
+            text: {
+                ref: '.element-shape'
+            }
         },
-        size: { width: 160, height: 80 }
+        size: {
+            width: 160,
+            height: 80
+        }
     }, joint.shapes.tm.toolElement.prototype.defaults)
 });
 
@@ -262,10 +349,22 @@ joint.shapes.tm.Actor = joint.shapes.tm.toolElement.extend({
 
         type: 'tm.Actor',
         attrs: {
-            '.element-shape': { fill: 'white', stroke: 'black', 'stroke-width': 1, 'follow-scale': true, width: 160, height: 80 },
-            text: { ref: '.element-shape' }
+            '.element-shape': {
+                fill: 'white',
+                stroke: 'black',
+                'stroke-width': 1,
+                'follow-scale': true,
+                width: 160,
+                height: 80
+            },
+            text: {
+                ref: '.element-shape'
+            }
         },
-        size: { width: 160, height: 80 }
+        size: {
+            width: 160,
+            height: 80
+        }
     }, joint.shapes.tm.toolElement.prototype.defaults)
 });
 
