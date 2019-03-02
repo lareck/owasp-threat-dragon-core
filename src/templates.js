@@ -196,7 +196,7 @@ angular.module('templates', [])
     '        </div>\n' +
         '    <div class="checkbox">\n' +
         '        <label>\n' +
-        '            <input name="checkboxAuth3" type="checkbox" ng-model="selected.usesAuth3" ng-change="edit()" /> Uses AAA\n' +
+        '            <input name="checkboxAuth3" ng-disabled="selected.outOfScope" type="checkbox" ng-model="selected.usesAuth3" ng-change="edit()" /> Uses AAA\n' +
         '        </label>\n' +
         '    </div>\n' +
         '    <div class="form-group">\n' +
