@@ -244,8 +244,8 @@ angular.module('templates', [])
       '                </div>\n' +
       '            </div>\n' +
       '            <div class="form-group">\n' +
-      '                <label>STRIDE threat type</label>\n' +
-      '                <select name="typeInput" class="form-control" ng-required="true" ng-model="parameter.threat.type">\n' +
+      '                <label>STRIDE Threat Type</label>\n' +
+      '                <select multiple size="1" name="strideInput" class="form-control" ng-required="false" ng-model="parameter.threat.strideType">\n' +
       '                    <option selected>Not Applicable</option>\n' +
       '                    <option>Spoofing</option>\n' +
       '                    <option>Tampering</option>\n' +
@@ -254,7 +254,7 @@ angular.module('templates', [])
       '                    <option>Denial of service</option>\n' +
       '                    <option>Elevation of privilege</option>\n' +
       '                </select>\n' +
-      '                <div ng-show="!threatEditForm.typeInput.$valid && threatEditForm.typeInput.$dirty">\n' +
+      '                <div ng-show="!threatEditForm.strideInput.$valid && threatEditForm.strideInput.$dirty">\n' +
       '                    <p>\n' +
       '                        <div class="alert alert-danger" role="alert">\n' +
       '                            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>\n' +
@@ -266,7 +266,7 @@ angular.module('templates', [])
       '            </div>\n' +
       '            <div class="form-group">\n' +
       '                <label>DREAD Threat Type</label>\n' +
-      '                <select name="typeInput" class="form-control" ng-required="true" ng-model="parameter.threat.dreadType">\n' +
+      '                <select multiple size="1" name="dreadInput" class="form-control" ng-required="false" ng-model="parameter.threat.dreadType">\n' +
       '                    <option selected>Not Applicable</option>\n' +
       '                    <option>Damage</option>\n' +
       '                    <option>Reproducibility</option>\n' +
@@ -274,7 +274,7 @@ angular.module('templates', [])
       '                    <option>Affected users</option>\n' +
       '                    <option>Discoverability</option>\n' +
       '                </select>\n' +
-      '                <div ng-show="!threatEditForm.typeInput.$valid && threatEditForm.typeInput.$dirty">\n' +
+      '                <div ng-show="!threatEditForm.dreadInput.$valid && threatEditForm.dreadInput.$dirty">\n' +
       '                    <p>\n' +
       '                        <div class="alert alert-danger" role="alert">\n' +
       '                            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>\n' +
@@ -286,7 +286,7 @@ angular.module('templates', [])
       '            </div>\n' +
       '            <div class="form-group">\n' +
       '                <label>Mitre Attack Type</label>\n' +
-      '                <select name="typeInput" class="form-control" ng-required="true" ng-model="parameter.threat.mitreAttackType">\n' +
+      '                <select multiple size="1" name="mitreInput" class="form-control" ng-required="false" ng-model="parameter.threat.mitreAttackType">\n' +
       '                    <option selected>Not Applicable</option>\n' +
       '                    <option>Initial Access</option>\n' +
       '                    <option>Execution</option>\n' +
@@ -300,7 +300,7 @@ angular.module('templates', [])
       '                    <option>Exfiltration</option>\n' +
       '                    <option>Command and Control</option>\n' +
       '                </select>\n' +
-      '                <div ng-show="!threatEditForm.typeInput.$valid && threatEditForm.typeInput.$dirty">\n' +
+      '                <div ng-show="!threatEditForm.mitreInput.$valid && threatEditForm.mitreInput.$dirty">\n' +
       '                    <p>\n' +
       '                        <div class="alert alert-danger" role="alert">\n' +
       '                            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>\n' +
@@ -360,8 +360,8 @@ angular.module('templates', [])
       '        <a id="editThreat{{$index}}" href="" ng-click="onEditThreat($index)" data-toggle="tooltip" data-placement="top" title="Edit {{threat.title}}">\n' +
       '            <div class="text-overflow"><small>{{threat.title}}</small></div>\n' +
       '        </a>\n' +
-      '        <div>\n' +
-      '            <small>{{threat.type}}</small>\n' +
+      '        <div class="text-overflow">\n' +
+      '            <small>{{threat.strideType}}{{threat.dreadType}}{{threat.mitreAttackType}}</small>\n' +
       '        </div>\n' +
       '        <div>\n' +
       '            <span ng-class="{Open:\'severity-high fa fa-exclamation-triangle\', Mitigated:\'severity-low fa fa-check\'}[threat.status]" data-toggle="tooltip" data-placement="top" title="{{threat.status}}"></span>\n' +
